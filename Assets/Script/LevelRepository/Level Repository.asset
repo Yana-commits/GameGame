@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9eaa7cdb945e8cf4db8029928f069300, type: 3}
+  m_Name: Level Repository
+  m_EditorClassIdentifier: 
+  LevelList:
+  - id: id_0
+    platforms:
+    - {fileID: 2455964064550194990, guid: bba1a66d8af74e843bcea733d373380e, type: 3}
+    - {fileID: 2455964064550194990, guid: 6ea196383d75256419eee0463e9272a2, type: 3}
+    - {fileID: 2455964064550194990, guid: f53169bba02fcc848b676ea3df897b16, type: 3}
+    enemyNomber: 0
+    levelColor: {r: 0.990566, g: 0.023362402, b: 0.6343385, a: 0}
+  - id: id_1
+    platforms:
+    - {fileID: 2455964064550194990, guid: 44ae254466cc8e54ea67e7d591b5ccce, type: 3}
+    - {fileID: 2455964064550194990, guid: bba1a66d8af74e843bcea733d373380e, type: 3}
+    - {fileID: 2455964064550194990, guid: 90bf7fbcf91260941b5aa040f459a68c, type: 3}
+    enemyNomber: 1
+    levelColor: {r: 0.07564971, g: 0.9433962, b: 0.07875218, a: 0}
+  - id: id_3
+    platforms:
+    - {fileID: 2455964064550194990, guid: f5e624fa0050fa04b8789b72053551cb, type: 3}
+    - {fileID: 2455964064550194990, guid: 90bf7fbcf91260941b5aa040f459a68c, type: 3}
+    - {fileID: 2455964064550194990, guid: f53169bba02fcc848b676ea3df897b16, type: 3}
+    enemyNomber: 1
+    levelColor: {r: 0.05958529, g: 0.2029817, b: 0.9716981, a: 0}
+  - id: id_4
+    platforms:
+    - {fileID: 2455964064550194990, guid: fa8894aa8b20bc0489d6de6cf4cdb988, type: 3}
+    - {fileID: 2455964064550194990, guid: cb7bed401bfa100448e488a994e3eba8, type: 3}
+    enemyNomber: 2
+    levelColor: {r: 0.39444405, g: 0.040850822, b: 0.9622642, a: 0}
+  - id: id_5
+    platforms:
+    - {fileID: 2455964064550194990, guid: 9f66e01b95f39954297522cb2682564f, type: 3}
+    - {fileID: 2455964064550194990, guid: b634848ad30bb544e9fa105029bb53c7, type: 3}
+    - {fileID: 2455964064550194990, guid: f5e624fa0050fa04b8789b72053551cb, type: 3}
+    enemyNomber: 2
+    levelColor: {r: 0, g: 1, b: 0.8927181, a: 0}
+  - id: id_6
+    platforms:
+    - {fileID: 2455964064550194990, guid: 6ea196383d75256419eee0463e9272a2, type: 3}
+    - {fileID: 2455964064550194990, guid: f53169bba02fcc848b676ea3df897b16, type: 3}
+    - {fileID: 2455964064550194990, guid: 90bf7fbcf91260941b5aa040f459a68c, type: 3}
+    enemyNomber: 3
+    levelColor: {r: 1, g: 0.7072407, b: 0.0047169924, a: 0}
+  - id: id_7
+    platforms:
+    - {fileID: 2455964064550194990, guid: 6ea196383d75256419eee0463e9272a2, type: 3}
+    - {fileID: 2455964064550194990, guid: 44ae254466cc8e54ea67e7d591b5ccce, type: 3}
+    - {fileID: 2455964064550194990, guid: bba1a66d8af74e843bcea733d373380e, type: 3}
+    enemyNomber: 3
+    levelColor: {r: 0.26415092, g: 0.061053753, b: 0.061053753, a: 0}
+  - id: id_8
+    platforms:
+    - {fileID: 2455964064550194990, guid: fa8894aa8b20bc0489d6de6cf4cdb988, type: 3}
+    - {fileID: 2455964064550194990, guid: cb7bed401bfa100448e488a994e3eba8, type: 3}
+    - {fileID: 2455964064550194990, guid: f53169bba02fcc848b676ea3df897b16, type: 3}
+    - {fileID: 2455964064550194990, guid: bba1a66d8af74e843bcea733d373380e, type: 3}
+    enemyNomber: 3
+    levelColor: {r: 0, g: 0, b: 0, a: 0}
+  - id: id_9
+    platforms:
+    - {fileID: 2455964064550194990, guid: bba1a66d8af74e843bcea733d373380e, type: 3}
+    - {fileID: 2455964064550194990, guid: 44ae254466cc8e54ea67e7d591b5ccce, type: 3}
+    - {fileID: 2455964064550194990, guid: 6ea196383d75256419eee0463e9272a2, type: 3}
+    - {fileID: 2455964064550194990, guid: 90bf7fbcf91260941b5aa040f459a68c, type: 3}
+    enemyNomber: 3
+    levelColor: {r: 0.025364893, g: 0.2830189, b: 0.12849544, a: 0}
