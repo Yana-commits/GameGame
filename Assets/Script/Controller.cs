@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Game.Data;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -118,6 +119,28 @@ public class Controller : MonoBehaviour
         }
     }
 
+    [SerializeField]
+    private Score score;
+    public Score Score
+    {
+        get
+        {
+            return score;
+        }
+
+        set
+        {
+            score = value;
+        }
+    }
+
+    
+    public delegate void IninitializeComplete();
+    public static event IninitializeComplete OnInitializeComplete;
+    public delegate void GameOverEvent();
+    public static event GameOverEvent OnGameOver;
+
+
     private void Awake()
     {
         if (instance == null)
@@ -132,35 +155,75 @@ public class Controller : MonoBehaviour
         }
 
         DontDestroyOnLoad(gameObject);
+
+       
+
     }
 
     void Start()
     {
+
+        CurrentLevel = UserDataController.Instance().info.currentLvl;
+        Index = UserDataController.Instance().info.index;
         InitializeLevel();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
+ 
     public void InitializeLevel()
     {
         level = new LevelParameters(currentLevel);
-
+        Hud.Instance.UpdateLvlValue(currentLevel);
         field = Field.Create(Level, LevelRepository, Enemy, Player);
+        OnInitializeComplete?.Invoke();
     }
     public void NewLevel()
+    {
+        LevelControl();
+        //Score.AddLevelBonus();
+        Debug.Log($"{currentLevel}");       
+        InitializeLevel();
+    }
+    public void TryAgain()
+    {
+     
+        InitializeLevel();
+    }
+    public void FromBegin()
+    {
+        GameReset();
+        InitializeLevel();
+    }
+    public void ClearField()
+    {
+        Destroy(field.gameObject);
+    }
+
+    public void GameOver()
+    {
+        Hud.Instance.ShowLoseWindow();
+        //event gameover
+        OnGameOver?.Invoke();
+    }
+
+    public void LevelControl()
     {
         Index++;
         if (Index >= 9)
         {
             Index = 0;
         }
+        UserDataController.Instance().info.index = Index;
         currentLevel++;
-        Debug.Log($"{currentLevel}");
-        Destroy(field.gameObject);
-        InitializeLevel();
+        if (currentLevel >= 9)
+        {
+            currentLevel = 0;
+        }
+        UserDataController.Instance().info.currentLvl = currentLevel;
+        Debug.Log($"{ UserDataController.Instance().info.currentLvl}");
+        Debug.Log($"{ UserDataController.Instance().info.currentLvl}");
+    }
+    public void GameReset()
+    {
+        Index = 0;
+        currentLevel = 0;
     }
 }

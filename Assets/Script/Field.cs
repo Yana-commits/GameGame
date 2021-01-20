@@ -33,8 +33,9 @@ public class Field : MonoBehaviour
         Camera.main.transform.position = cameraPosition;
         Camera.main.orthographicSize = (float)h_size * 0.6f;
 
-        field.gameObject.GetComponent<Field>().CreateEnemie(level, enemy, levelRepository);
         field.gameObject.GetComponent<Field>().CreateChips(level, levelRepository);
+        field.gameObject.GetComponent<Field>().CreateEnemie(level, enemy, levelRepository);
+        
         field.gameObject.GetComponent<Field>().CreatePlayer(level, player);
 
         return field.gameObject.GetComponent<Field>();
