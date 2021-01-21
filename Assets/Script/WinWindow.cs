@@ -17,8 +17,6 @@ public class WinWindow : MonoBehaviour
         nextLvlBt.onClick.AddListener(() => Controller.Instance.NewLevel());
         restartBt.onClick.AddListener(() => Hud.Instance.HideLoseWindow());
         restartBt.onClick.AddListener(() => Controller.Instance.TryAgain());
-        //resetBt.onClick.AddListener(() => Hud.Instance.HideWinWindow());
-        //resetBt.onClick.AddListener(() => Controller.Instance.FromBegin());
     }
 
     // Update is called once per frame
