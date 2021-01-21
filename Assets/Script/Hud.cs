@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Game.Data;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -31,6 +32,8 @@ public class Hud : MonoBehaviour
     private Button again;
     [SerializeField]
     private GameObject bottom;
+    [SerializeField]
+    private TMP_Text noName;
 
     private void Awake()
     {
@@ -39,7 +42,7 @@ public class Hud : MonoBehaviour
 
     void Start()
     {
-        
+        noName.text = UserDataController.Instance().info.Name;
     }
 
     // Update is called once per frame
