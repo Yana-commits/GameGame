@@ -7,10 +7,7 @@ public class Player : MonoBehaviour
     private Rigidbody rigidbody;
     public Joystick joystick;
     public int speed;
-    private Vector3 vector = new Vector3(0.1f, 0.1f, 0.16f);
-    [SerializeField]
-    private CanvasGroup loseWindow;
-
+  
     void Start()
     {
         
