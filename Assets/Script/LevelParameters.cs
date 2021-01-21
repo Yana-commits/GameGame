@@ -14,6 +14,12 @@ public class LevelParameters
     [SerializeField]
     private int increaseNomber;
 
+    [SerializeField]
+    private int horIndex;
+
+    [SerializeField]
+    private int vertIndex;
+
     public int H_size
     {
         get
@@ -30,9 +36,23 @@ public class LevelParameters
     {
         get { return increaseNomber; }
     }
+
+    public int HorIndex
+    {
+        get
+        {
+            return horIndex;
+        }
+
+    }
+
+   
     public LevelParameters(int currentLevel)
     {
         int fieldIncreaseStep = currentLevel / 3;
+        
+        increaseNomber = 1 + currentLevel / 9;
+
         if (fieldIncreaseStep % 2 == 0 && fieldIncreaseStep != 0)
         {
             h_size = 18 + 6 * fieldIncreaseStep;
@@ -48,7 +68,5 @@ public class LevelParameters
             h_size = 18 + 6 * fieldIncreaseStep;
             w_size = 6 + 3 * fieldIncreaseStep ;
         }
-    
-        increaseNomber = 1 + fieldIncreaseStep;
     }
 }

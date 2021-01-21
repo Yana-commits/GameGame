@@ -8,7 +8,8 @@ public class Player : MonoBehaviour
     public Joystick joystick;
     public int speed;
     private Vector3 vector = new Vector3(0.1f, 0.1f, 0.16f);
-
+    [SerializeField]
+    private CanvasGroup loseWindow;
 
     void Start()
     {
@@ -18,7 +19,7 @@ public class Player : MonoBehaviour
         
         GetComponent<Renderer>().material.color = Controller.Instance.LevelRepository.LevelList[Controller.Instance.Index].levelColor;
         VictoryController.Win += EndLvl;
-
+        Controller.OnGameOver += EndLvl;
         //transform.SetParent(Controller.Instance.Field.transform);
         //transform.localScale = vector;
     }
@@ -39,8 +40,11 @@ public class Player : MonoBehaviour
         if (gameObject)
         {
             VictoryController.Win -= EndLvl;
+            Controller.OnGameOver -= EndLvl;
             Destroy(gameObject);
         }
     }
+
+    
 
 }

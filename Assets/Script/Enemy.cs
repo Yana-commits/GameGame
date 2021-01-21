@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
+
 {
     
     void Start()
@@ -32,7 +33,9 @@ public class Enemy : MonoBehaviour
         else if (other.CompareTag("Player"))
         {
             Debug.Log("Game over");
-            Destroy(other.gameObject);
+            //Destroy(other.gameObject);
+         
+            Controller.Instance.GameOver();
         }
     }
 }
