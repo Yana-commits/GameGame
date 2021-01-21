@@ -165,6 +165,7 @@ public class Controller : MonoBehaviour
 
         CurrentLevel = UserDataController.Instance().info.currentLvl;
         Index = UserDataController.Instance().info.index;
+        Score.CurrentScore = UserDataController.Instance().info.score;
         InitializeLevel();
     }
  
@@ -187,11 +188,7 @@ public class Controller : MonoBehaviour
      
         InitializeLevel();
     }
-    public void FromBegin()
-    {
-        GameReset();
-        InitializeLevel();
-    }
+    
     public void ClearField()
     {
         Destroy(field.gameObject);
@@ -218,12 +215,8 @@ public class Controller : MonoBehaviour
             currentLevel = 0;
         }
         UserDataController.Instance().info.currentLvl = currentLevel;
-        Debug.Log($"{ UserDataController.Instance().info.currentLvl}");
-        Debug.Log($"{ UserDataController.Instance().info.currentLvl}");
+        UserDataController.Instance().LocalSave();
+
     }
-    public void GameReset()
-    {
-        Index = 0;
-        currentLevel = 0;
-    }
+    
 }

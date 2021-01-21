@@ -32,6 +32,8 @@ namespace Game.Data
         {
             string path = Application.persistentDataPath + "/user";
             string json = JsonConvert.SerializeObject(info);
+            Debug.Log(json);
+            Debug.Log(path);
             File.WriteAllText(path, json);
             //FireBaseConnector.userSavesRef?.SetRawJsonValueAsync(json);
         }

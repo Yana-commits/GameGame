@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Game.Data;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -30,6 +31,7 @@ public class Score
     public void AddLevelBonus()
     {
         CurrentScore += levelScoreBonus;
+        UserDataController.Instance().info.score = currentScore;
     }
 
     public void AddTurnBonus()
