@@ -24,6 +24,12 @@ public class LoginScene : MonoBehaviour
 
     [SerializeField]
     private InputField  name;
+    [SerializeField]
+    private Button joystic;
+    [SerializeField]
+    private Button buttons;
+    [SerializeField]
+    private Button giro;
 
     void Start()
     {
@@ -31,6 +37,9 @@ public class LoginScene : MonoBehaviour
        leaderBoard.onClick.AddListener(() => ShowLeaderBoard());
         inputBt.onClick.AddListener(() => Input());
         exit.onClick.AddListener(() => Exit());
+        joystic.onClick.AddListener(() => ForJoystic());
+      buttons.onClick.AddListener(() => ForButton());
+        giro.onClick.AddListener(() => ForGiro());
     }
 
     
@@ -54,5 +63,17 @@ public class LoginScene : MonoBehaviour
     private void Exit()
     {
         Application.Quit();
+    }
+    public void ForJoystic()
+    {
+        UserDataController.Instance().info.faktor = 0;
+    }
+    public void ForButton()
+    {
+        UserDataController.Instance().info.faktor = 1;
+    }
+    public void ForGiro()
+    {
+        UserDataController.Instance().info.faktor = 2;
     }
 }

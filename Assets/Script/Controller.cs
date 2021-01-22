@@ -90,6 +90,9 @@ public class Controller : MonoBehaviour
         }
     }
 
+    [SerializeField] Joystick joystick;
+    [SerializeField] ButtonsInput buttonsInput;
+
     [SerializeField]
     private Player player;
     public Player Player
@@ -134,6 +137,8 @@ public class Controller : MonoBehaviour
         }
     }
 
+    public int faktor = 0;
+
     
     public delegate void IninitializeComplete();
     public static event IninitializeComplete OnInitializeComplete;
@@ -156,8 +161,6 @@ public class Controller : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
 
-       
-
     }
 
     void Start()
@@ -166,6 +169,9 @@ public class Controller : MonoBehaviour
         CurrentLevel = UserDataController.Instance().info.currentLvl;
         Index = UserDataController.Instance().info.index;
         Score.CurrentScore = UserDataController.Instance().info.score;
+        faktor = UserDataController.Instance().info.faktor;
+
+
         InitializeLevel();
     }
  
@@ -174,6 +180,20 @@ public class Controller : MonoBehaviour
         level = new LevelParameters(currentLevel);
         Hud.Instance.UpdateLvlValue(currentLevel);
         field = Field.Create(Level, LevelRepository, Enemy, Player);
+
+        var playerInstance = FindObjectOfType<Player>();
+        IAxisInput current = null;
+        switch (faktor)
+        {
+            case 0:
+                current = joystick;
+                break;
+            case 1:
+                current = buttonsInput;
+                break;
+        }
+        playerInstance.currentInput = current;
+
         OnInitializeComplete?.Invoke();
     }
     public void NewLevel()
@@ -216,7 +236,6 @@ public class Controller : MonoBehaviour
         }
         UserDataController.Instance().info.currentLvl = currentLevel;
         UserDataController.Instance().LocalSave();
-
     }
-    
+   
 }

@@ -10,7 +10,7 @@ namespace Game.Data
         public int index = 0;
         public int currentLvl = 0;
         public int score = 0;
-
+        public int faktor = 0;
         public UserData()
         { 
         }
@@ -21,6 +21,7 @@ namespace Game.Data
          index = 0;
          currentLvl = 0;
          score = 0;
+            faktor = 0;
         }
     }
 }

@@ -25,8 +25,6 @@ public class Hud : MonoBehaviour
     [SerializeField]
     private CanvasGroup winWindow;
     [SerializeField]
-    private CanvasGroup loseWindow;
-    [SerializeField]
     private Button next;
     [SerializeField]
     private Button again;
@@ -34,15 +32,31 @@ public class Hud : MonoBehaviour
     private GameObject bottom;
     [SerializeField]
     private TMP_Text noName;
+    [SerializeField]
+    private Joystick joystick;
+    private int selection;
 
     private void Awake()
     {
         instance = this;
+        
+      
     }
 
     void Start()
     {
         noName.text = UserDataController.Instance().info.Name;
+        selection = Controller.Instance.faktor;
+        if (selection == 0)
+        {
+            bottom.SetActive(false);
+            joystick.gameObject.SetActive(true);
+        }
+        else if (selection == 1)
+        {
+            joystick.gameObject.SetActive(false);
+            bottom.SetActive(true);
+        }
     }
 
     // Update is called once per frame
@@ -145,4 +159,5 @@ public class Hud : MonoBehaviour
             yield return new WaitForFixedUpdate();
         }
     }
+   
 }
