@@ -46,12 +46,11 @@ public class LevelParameters
 
     }
 
-   
-    public LevelParameters(int currentLevel)
+    public LevelParameters(int currentLevel, int nomberIncreaseStep)
     {
         int fieldIncreaseStep = currentLevel / 3;
         
-        increaseNomber = 1 + currentLevel / 9;
+        increaseNomber = 1 + nomberIncreaseStep / 9;
 
         if (fieldIncreaseStep % 2 == 0 && fieldIncreaseStep != 0)
         {

@@ -123,6 +123,20 @@ public class Controller : MonoBehaviour
         }
     }
 
+    private int nomberIncreaseStep;
+    public int NomberIncreaseStep
+    {
+        get
+        {
+            return nomberIncreaseStep;
+        }
+
+        set
+        {
+            nomberIncreaseStep = value;
+        }
+    }
+
     [SerializeField]
     private Score score;
     public Score Score
@@ -169,6 +183,7 @@ public class Controller : MonoBehaviour
 
         CurrentLevel = UserDataController.Instance().info.currentLvl;
         Index = UserDataController.Instance().info.index;
+        nomberIncreaseStep = UserDataController.Instance().info.increaseNomber;
         Score.CurrentScore = UserDataController.Instance().info.score;
         faktor = UserDataController.Instance().info.faktor;
 
@@ -178,7 +193,7 @@ public class Controller : MonoBehaviour
  
     public void InitializeLevel()
     {
-        level = new LevelParameters(currentLevel);
+        level = new LevelParameters(currentLevel, nomberIncreaseStep);
         Hud.Instance.UpdateLvlValue(currentLevel);
         field = Field.Create(Level, LevelRepository, Enemy, Player);
 
@@ -238,6 +253,8 @@ public class Controller : MonoBehaviour
             currentLevel = 0;
         }
         UserDataController.Instance().info.currentLvl = currentLevel;
+        nomberIncreaseStep++;
+        UserDataController.Instance().info.increaseNomber = nomberIncreaseStep;
         UserDataController.Instance().LocalSave();
     }
    
