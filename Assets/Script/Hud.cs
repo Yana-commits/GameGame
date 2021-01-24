@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Hud : MonoBehaviour
@@ -29,6 +30,8 @@ public class Hud : MonoBehaviour
     [SerializeField]
     private Button again;
     [SerializeField]
+    private Button mainMenu;
+    [SerializeField]
     private GameObject bottom;
     [SerializeField]
     private TMP_Text noName;
@@ -45,6 +48,7 @@ public class Hud : MonoBehaviour
 
     void Start()
     {
+        mainMenu.onClick.AddListener(() => Exit());
         noName.text = UserDataController.Instance().info.Name;
         selection = Controller.Instance.faktor;
         switch (selection)
@@ -153,5 +157,8 @@ public class Hud : MonoBehaviour
             yield return new WaitForFixedUpdate();
         }
     }
-   
+    private void Exit()
+    {
+        SceneManager.LoadScene("LoginScene", LoadSceneMode.Single);
+    }
 }

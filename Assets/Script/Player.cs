@@ -32,7 +32,7 @@ public class Player : MonoBehaviour
     {
         Vector2 dir = currentInput.Direction;
         rigidbody.velocity = new Vector3(-dir.y, 0 , dir.x) * normalSpeed;
-        Debug.Log(dir);
+      
     }
 
     public void EndLvl()
