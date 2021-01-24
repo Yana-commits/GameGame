@@ -47,22 +47,21 @@ public class Hud : MonoBehaviour
     {
         noName.text = UserDataController.Instance().info.Name;
         selection = Controller.Instance.faktor;
-        if (selection == 0)
+        switch (selection)
         {
-            bottom.SetActive(false);
-            joystick.gameObject.SetActive(true);
+            case 0:
+                bottom.SetActive(false);
+                joystick.gameObject.SetActive(true);
+                break;
+            case 1:
+                joystick.gameObject.SetActive(false);
+                bottom.SetActive(true);
+                break;
+            case 2:
+                joystick.gameObject.SetActive(false);
+                bottom.SetActive(false);
+                break;
         }
-        else if (selection == 1)
-        {
-            joystick.gameObject.SetActive(false);
-            bottom.SetActive(true);
-        }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void UpdateScoreValue(int value)
@@ -135,19 +134,14 @@ public class Hud : MonoBehaviour
 
         winWindow.blocksRaycasts = false;
 
-        // winWindow.interactable = false;
-        //bottom.SetActive(true);
         next.gameObject.SetActive(false);
     }
     public void HideLoseWindow()
     {
-
         StartCoroutine(Hide(winWindow));
 
         winWindow.blocksRaycasts = false;
 
-        // winWindow.interactable = false;
-        //bottom.SetActive(true);
         again.gameObject.SetActive(false);
     }
 

@@ -19,9 +19,4 @@ public class WinWindow : MonoBehaviour
         restartBt.onClick.AddListener(() => Controller.Instance.TryAgain());
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

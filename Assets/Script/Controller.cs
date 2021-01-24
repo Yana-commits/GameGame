@@ -92,6 +92,7 @@ public class Controller : MonoBehaviour
 
     [SerializeField] Joystick joystick;
     [SerializeField] ButtonsInput buttonsInput;
+    [SerializeField] AcelrationInput acelration;
 
     [SerializeField]
     private Player player;
@@ -191,6 +192,9 @@ public class Controller : MonoBehaviour
             case 1:
                 current = buttonsInput;
                 break;
+            case 2:
+                current = acelration;
+                break;
         }
         playerInstance.currentInput = current;
 
@@ -205,7 +209,6 @@ public class Controller : MonoBehaviour
     }
     public void TryAgain()
     {
-     
         InitializeLevel();
     }
     

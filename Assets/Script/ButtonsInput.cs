@@ -38,5 +38,4 @@ public class ButtonsInput : MonoBehaviour, IAxisInput
         return retVal;
     }
 
-   
 }

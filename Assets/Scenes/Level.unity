@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -251,6 +251,7 @@ MonoBehaviour:
     vertIndex: 0
   joystick: {fileID: 8847858066983123753}
   buttonsInput: {fileID: 8847858066983123756}
+  acelration: {fileID: 513650663}
   player: {fileID: 6452693105062812233, guid: 6bb6e0b9bad3e4145914f830d62fdcac, type: 3}
   score:
     currentScore: 0
@@ -270,6 +271,49 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &513650662
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 513650664}
+  - component: {fileID: 513650663}
+  m_Layer: 0
+  m_Name: AccelerationInput
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &513650663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 513650662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e31bb1f230bbc084fb47786ab26476ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &513650664
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 513650662}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 25.532324, y: 17.50916, z: -36.82}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &591342439
 GameObject:
@@ -698,26 +742,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1386952385}
     m_Modifications:
-    - target: {fileID: 2844949757802026807, guid: 5083a117aa7de27439f6c3d75c288bde,
-        type: 3}
-      propertyPath: rightButton
-      value: 
-      objectReference: {fileID: 769088834}
-    - target: {fileID: 2844949757802026807, guid: 5083a117aa7de27439f6c3d75c288bde,
-        type: 3}
-      propertyPath: upButton
-      value: 
-      objectReference: {fileID: 1737401245}
-    - target: {fileID: 2844949757802026807, guid: 5083a117aa7de27439f6c3d75c288bde,
-        type: 3}
-      propertyPath: downButton
-      value: 
-      objectReference: {fileID: 2126380006}
-    - target: {fileID: 2844949757802026807, guid: 5083a117aa7de27439f6c3d75c288bde,
-        type: 3}
-      propertyPath: leftButton
-      value: 
-      objectReference: {fileID: 764283020}
     - target: {fileID: 8847858066629721081, guid: 5083a117aa7de27439f6c3d75c288bde,
         type: 3}
       propertyPath: m_Name
@@ -743,6 +767,26 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2844949757802026807, guid: 5083a117aa7de27439f6c3d75c288bde,
+        type: 3}
+      propertyPath: rightButton
+      value: 
+      objectReference: {fileID: 769088834}
+    - target: {fileID: 2844949757802026807, guid: 5083a117aa7de27439f6c3d75c288bde,
+        type: 3}
+      propertyPath: upButton
+      value: 
+      objectReference: {fileID: 1737401245}
+    - target: {fileID: 2844949757802026807, guid: 5083a117aa7de27439f6c3d75c288bde,
+        type: 3}
+      propertyPath: downButton
+      value: 
+      objectReference: {fileID: 2126380006}
+    - target: {fileID: 2844949757802026807, guid: 5083a117aa7de27439f6c3d75c288bde,
+        type: 3}
+      propertyPath: leftButton
+      value: 
+      objectReference: {fileID: 764283020}
     - target: {fileID: 9087196864219508923, guid: 5083a117aa7de27439f6c3d75c288bde,
         type: 3}
       propertyPath: m_AnchorMin.y
