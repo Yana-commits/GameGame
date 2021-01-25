@@ -4,7 +4,8 @@ using UnityEngine;
 using System.IO;
 using UnityEngine;
 using Newtonsoft.Json;
-
+using System;
+using Services.Firebase;
 
 namespace Game.Data
 {
@@ -25,6 +26,7 @@ namespace Game.Data
         {
             info = new UserData("MMM");
             Load();
+
         }
         public UserData info;
 
@@ -32,10 +34,10 @@ namespace Game.Data
         {
             string path = Application.persistentDataPath + "/user";
             string json = JsonConvert.SerializeObject(info);
-            Debug.Log(json);
-            Debug.Log(path);
+            Debug.Log($"{path}");
             File.WriteAllText(path, json);
-            //FireBaseConnector.userSavesRef?.SetRawJsonValueAsync(json);
+
+            _ = FirebaseManager.databaseManager.SetUserData(json);
         }
 
         public void Load()
@@ -53,8 +55,10 @@ namespace Game.Data
                 }
             }
 
-           info = new UserData("MMM");
+            info = new UserData("MMM");
         }
+
+
     }
 }
 

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "11126301870",
+    "firebase_url": "https://gamegame-7b6d8-default-rtdb.firebaseio.com",
+    "project_id": "gamegame-7b6d8",
+    "storage_bucket": "gamegame-7b6d8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:11126301870:android:184f4bbad3ef20822ff93f",
+        "android_client_info": {
+          "package_name": "com.fgfactory.gamegame"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "11126301870-j6nbppag4emv36470m2h033ou6fldgv3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCSyAnpNvOgYHrivSYFG5WPJQY8BrQgEss"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "11126301870-j6nbppag4emv36470m2h033ou6fldgv3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
