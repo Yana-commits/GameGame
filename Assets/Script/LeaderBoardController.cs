@@ -37,7 +37,6 @@ public class LeaderBoardController : MonoBehaviour
         }
         leaderViews.Clear();
     }
-
     private async void Initialize()
     {
         List<UserData> leaders = await FirebaseManager.databaseManager.GetLeaderBoard(leadersAmount);

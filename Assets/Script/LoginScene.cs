@@ -30,6 +30,9 @@ public class LoginScene : MonoBehaviour
     private Button buttons;
     [SerializeField]
     private Button giro;
+    [SerializeField]
+    private GameObject board
+        ;
 
     void Start()
     {
@@ -42,12 +45,6 @@ public class LoginScene : MonoBehaviour
         giro.onClick.AddListener(() => ForGiro());
     }
 
-    
-    void Update()
-    {
-        
-    }
-
     private void Input()
     {
         UserDataController.Instance().info.Name = name.text.ToString();
@@ -57,8 +54,8 @@ public class LoginScene : MonoBehaviour
         SceneManager.LoadScene("Level", LoadSceneMode.Single);
     }
     private void ShowLeaderBoard()
-    { 
-    
+    {
+        board.SetActive(true);
     }
     private void Exit()
     {
