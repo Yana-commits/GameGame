@@ -152,9 +152,11 @@ public class Controller : MonoBehaviour
         }
     }
 
+    [SerializeField]
+    private IronSourceManager ironSourceManager;
+
     public int faktor = 0;
 
-    
     public delegate void IninitializeComplete();
     public static event IninitializeComplete OnInitializeComplete;
     public delegate void GameOverEvent();
@@ -181,7 +183,6 @@ public class Controller : MonoBehaviour
 
     void Start()
     {
-
         CurrentLevel = UserDataController.Instance().info.currentLvl;
         Index = UserDataController.Instance().info.index;
         nomberIncreaseStep = UserDataController.Instance().info.increaseNomber;
@@ -189,6 +190,8 @@ public class Controller : MonoBehaviour
         faktor = UserDataController.Instance().info.faktor;
 
         InitializeLevel();
+
+        IronSource.Agent.loadBanner(new IronSourceBannerSize(320, 50), IronSourceBannerPosition.TOP);
     }
  
     public void InitializeLevel()
@@ -241,6 +244,7 @@ public class Controller : MonoBehaviour
     }
     public void GameOver()
     {
+        ironSourceManager.ShowInterstitial();
         Hud.Instance.ShowLoseWindow();
         OnGameOver?.Invoke();
     }
