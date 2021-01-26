@@ -10,8 +10,7 @@ public class VictoryController : MonoBehaviour
 
     private int amount = 0;
 
-    public delegate void WinDelegate();
-    public static event WinDelegate Win;
+    
     void Awake()
     {
         Chip.Score += ChipAmount;
@@ -31,14 +30,8 @@ public class VictoryController : MonoBehaviour
         if (amount == allChip2.Count)
         {
             Debug.Log("Win!");
-            Controller.Instance.Score.AddLevelBonus();
-            Hud.Instance.ShowWinWindow();
-            Win?.Invoke();
-            Controller.Instance.ClearField();
+            Controller.Instance.GameWinner();
             DeliteList();
-            //Controller.Instance.NewLevel();
-            //DeliteList(ref allChip2);
-            //Invoke("Collect", 10f);
         }
         else
         {

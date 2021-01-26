@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
         selection = Controller.Instance.faktor;
 
         GetComponent<Renderer>().material.color = Controller.Instance.LevelRepository.LevelList[Controller.Instance.Index].levelColor;
-        VictoryController.Win += EndLvl;
+        Controller.Win += EndLvl;
         Controller.OnGameOver += EndLvl;
     }
 
@@ -32,14 +32,13 @@ public class Player : MonoBehaviour
     {
         Vector2 dir = currentInput.Direction;
         rigidbody.velocity = new Vector3(-dir.y, 0 , dir.x) * normalSpeed;
-      
     }
 
     public void EndLvl()
     {
         if (gameObject)
         {
-            VictoryController.Win -= EndLvl;
+            Controller.Win -= EndLvl;
             Controller.OnGameOver -= EndLvl;
             Destroy(gameObject);
         }

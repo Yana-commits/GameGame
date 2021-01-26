@@ -159,7 +159,8 @@ public class Controller : MonoBehaviour
     public static event IninitializeComplete OnInitializeComplete;
     public delegate void GameOverEvent();
     public static event GameOverEvent OnGameOver;
-
+    public delegate void WinDelegate();
+    public static event WinDelegate Win;
 
     private void Awake()
     {
@@ -232,10 +233,16 @@ public class Controller : MonoBehaviour
         Destroy(field.gameObject);
     }
 
+    public void GameWinner()
+    {
+        Score.AddLevelBonus();
+        Hud.Instance.ShowWinWindow();
+        Win?.Invoke();
+        ClearField();
+    }
     public void GameOver()
     {
         Hud.Instance.ShowLoseWindow();
-        //event gameover
         OnGameOver?.Invoke();
     }
 

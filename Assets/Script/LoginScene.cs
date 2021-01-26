@@ -48,6 +48,7 @@ public class LoginScene : MonoBehaviour
     private void Input()
     {
         UserDataController.Instance().info.Name = name.text.ToString();
+        UserDataController.Instance().LocalSave();
     }
     private void ToPlay()
     {
