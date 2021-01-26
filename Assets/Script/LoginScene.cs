@@ -5,6 +5,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+
+public enum Control {joy,but,accel }
 public class LoginScene : MonoBehaviour
 {
     [SerializeField]
@@ -40,9 +42,9 @@ public class LoginScene : MonoBehaviour
        leaderBoard.onClick.AddListener(() => ShowLeaderBoard());
         inputBt.onClick.AddListener(() => Input());
         exit.onClick.AddListener(() => Exit());
-        joystic.onClick.AddListener(() => ForJoystic());
-      buttons.onClick.AddListener(() => ForButton());
-        giro.onClick.AddListener(() => ForGiro());
+        joystic.onClick.AddListener(() => PlayerControl(Control.joy));
+      buttons.onClick.AddListener(() => PlayerControl(Control.but));
+        giro.onClick.AddListener(() => PlayerControl(Control.accel));
     }
 
     private void Input()
@@ -62,16 +64,10 @@ public class LoginScene : MonoBehaviour
     {
         Application.Quit();
     }
-    public void ForJoystic()
+  
+    private void PlayerControl(Control control)
     {
-        UserDataController.Instance().info.faktor = 0;
-    }
-    public void ForButton()
-    {
-        UserDataController.Instance().info.faktor = 1;
-    }
-    public void ForGiro()
-    {
-        UserDataController.Instance().info.faktor = 2;
+        UserDataController.Instance().info.faktor = (int)control;
+        UserDataController.Instance().LocalSave();
     }
 }

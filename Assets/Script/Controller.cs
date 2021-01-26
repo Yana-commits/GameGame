@@ -168,14 +168,14 @@ public class Controller : MonoBehaviour
         {
             instance = this;
 
-            DontDestroyOnLoad(gameObject);
+            //DontDestroyOnLoad(gameObject);
         }
         else
         {
             if (instance != this) Destroy(gameObject);
         }
 
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
 
     }
 
@@ -187,7 +187,6 @@ public class Controller : MonoBehaviour
         nomberIncreaseStep = UserDataController.Instance().info.increaseNomber;
         Score.CurrentScore = UserDataController.Instance().info.score;
         faktor = UserDataController.Instance().info.faktor;
-
 
         InitializeLevel();
     }

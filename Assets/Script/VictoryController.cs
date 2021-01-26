@@ -16,7 +16,8 @@ public class VictoryController : MonoBehaviour
         Chip.Score += ChipAmount;
         Controller.OnInitializeComplete += Collect;
         Controller.OnGameOver += GameOverHandler;
-        //Invoke("Collect", 1f);
+        Controller.OnInitializeComplete -= Collect;
+        Controller.OnGameOver -= GameOverHandler;
     }
 
     private void ChipAmount()
@@ -42,7 +43,6 @@ public class VictoryController : MonoBehaviour
     {
         //allChip2 = new List<GameObject>(GameObject.FindObjectsOfType<Chip>().Select(c=> c.gameObject));
         StartCoroutine(CollectDelay());
-       
     }
 
     IEnumerator CollectDelay()
