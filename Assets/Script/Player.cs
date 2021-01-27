@@ -24,8 +24,8 @@ public class Player : MonoBehaviour
         selection = Controller.Instance.faktor;
 
         GetComponent<Renderer>().material.color = Controller.Instance.LevelRepository.LevelList[Controller.Instance.Index].levelColor;
-        Controller.Win += EndLvl;
-        Controller.OnGameOver += EndLvl;
+        Controller.Instance.Win += EndLvl;
+        Controller.Instance.OnGameOver += EndLvl;
     }
 
     void FixedUpdate()
@@ -38,9 +38,13 @@ public class Player : MonoBehaviour
     {
         if (gameObject)
         {
-            Controller.Win -= EndLvl;
-            Controller.OnGameOver -= EndLvl;
             Destroy(gameObject);
         }
+    }
+
+    public void OnDestroy()
+    {
+        Controller.Instance.Win -= EndLvl;
+        Controller.Instance.OnGameOver -= EndLvl;
     }
 }

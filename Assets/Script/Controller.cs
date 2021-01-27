@@ -11,13 +11,7 @@ public class Controller : MonoBehaviour
     {
         get
         {
-            if (instance == null)
-            {
-                var controller =
-                           Instantiate(Resources.Load("Prefabs/Controller")) as GameObject;
-
-                instance = controller.GetComponent<Controller>();
-            }
+ 
             return instance;
         }
     }
@@ -131,26 +125,24 @@ public class Controller : MonoBehaviour
     public int faktor = 0;
 
     public delegate void IninitializeComplete();
-    public static event IninitializeComplete OnInitializeComplete;
+    public  event IninitializeComplete OnInitializeComplete;
     public delegate void GameOverEvent();
-    public static event GameOverEvent OnGameOver;
+    public  event GameOverEvent OnGameOver;
     public delegate void WinDelegate();
-    public static event WinDelegate Win;
+    public event WinDelegate Win;
 
     private void Awake()
     {
         if (instance == null)
         {
             instance = this;
-
-            DontDestroyOnLoad(gameObject);
         }
         else
         {
-            if (instance != this) Destroy(gameObject);
+            if (instance != this && instance != null) Destroy(gameObject);
         }
 
-        DontDestroyOnLoad(gameObject);
+    
     }
 
     void Start()

@@ -11,11 +11,11 @@ public class VictoryController : MonoBehaviour
     private int amount = 0;
 
     
-    void Awake()
+    void Start()
     {
         Chip.Score += ChipAmount;
-        Controller.OnInitializeComplete += Collect;
-        Controller.OnGameOver += GameOverHandler;
+        Controller.Instance.OnInitializeComplete += Collect;
+        Controller.Instance.OnGameOver += GameOverHandler;
 
     }
 
@@ -64,7 +64,8 @@ public class VictoryController : MonoBehaviour
     }
     private void OnDestroy()
     {
-        Controller.OnInitializeComplete -= Collect;
-        Controller.OnGameOver -= GameOverHandler;
+        Chip.Score -= ChipAmount;
+        Controller.Instance.OnInitializeComplete -= Collect;
+        Controller.Instance.OnGameOver -= GameOverHandler;
     }
 }
