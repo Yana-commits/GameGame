@@ -9,7 +9,7 @@ public class AcelrationInput : MonoBehaviour, IAxisInput
     {
         Vector2 retVal = Vector2.zero;
 
-        retVal = new Vector3(-Input.acceleration.y, Input.acceleration.x , 0f);
+        retVal = new Vector3(Input.acceleration.x, -Input.acceleration.y , 0f);
 
         if (retVal.sqrMagnitude > 1)
         {

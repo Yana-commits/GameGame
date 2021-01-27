@@ -8,14 +8,11 @@ public class IronSourceManager : MonoBehaviour
     private string appKey = "e336ada1";
     void Start()
     {
-
-        Debug.Log("unity-script: IronSource.Agent.validateIntegration");
+        IronSource.Agent.init(appKey);
         IronSource.Agent.validateIntegration();
 
-        Debug.Log("unity-script: unity version" + IronSource.unityVersion());
-
-        Debug.Log("unity-script: IronSource.Agent.init");
-        IronSource.Agent.init(appKey);
+        
+        
 
         IronSourceEvents.onInterstitialAdReadyEvent += InterstitialAdReadyEvent;
 

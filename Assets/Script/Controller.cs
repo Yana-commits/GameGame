@@ -170,14 +170,14 @@ public class Controller : MonoBehaviour
         {
             instance = this;
 
-            //DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
             if (instance != this) Destroy(gameObject);
         }
 
-        //DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(gameObject);
 
     }
 
@@ -244,7 +244,8 @@ public class Controller : MonoBehaviour
     }
     public void GameOver()
     {
-        ironSourceManager.ShowInterstitial();
+        Debug.Log("die");
+        //ironSourceManager.ShowInterstitial();
         Hud.Instance.ShowLoseWindow();
         OnGameOver?.Invoke();
     }
