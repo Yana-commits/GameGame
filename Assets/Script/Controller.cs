@@ -109,33 +109,9 @@ public class Controller : MonoBehaviour
         }
     }
 
-    private int currentLevel;
-    public int CurrentLevel
-    {
-        get
-        {
-            return currentLevel;
-        }
+    public int CurrentLevel { get; set; }
 
-        set
-        {
-            currentLevel = value;
-        }
-    }
-
-    private int nomberIncreaseStep;
-    public int NomberIncreaseStep
-    {
-        get
-        {
-            return nomberIncreaseStep;
-        }
-
-        set
-        {
-            nomberIncreaseStep = value;
-        }
-    }
+    public int NomberIncreaseStep { get; set; }
 
     [SerializeField]
     private Score score;
@@ -151,9 +127,6 @@ public class Controller : MonoBehaviour
             score = value;
         }
     }
-
-    [SerializeField]
-    private IronSourceManager ironSourceManager;
 
     public int faktor = 0;
 
@@ -178,26 +151,25 @@ public class Controller : MonoBehaviour
         }
 
         DontDestroyOnLoad(gameObject);
-
     }
 
     void Start()
     {
         CurrentLevel = UserDataController.Instance().info.currentLvl;
         Index = UserDataController.Instance().info.index;
-        nomberIncreaseStep = UserDataController.Instance().info.increaseNomber;
+        NomberIncreaseStep = UserDataController.Instance().info.increaseNomber;
         Score.CurrentScore = UserDataController.Instance().info.score;
         faktor = UserDataController.Instance().info.faktor;
 
         InitializeLevel();
 
-        IronSource.Agent.loadBanner(new IronSourceBannerSize(320, 50), IronSourceBannerPosition.TOP);
+        Services.Ads.IronSourceManager.Instance.ShowBanner();
     }
- 
+
     public void InitializeLevel()
     {
-        level = new LevelParameters(currentLevel, nomberIncreaseStep);
-        Hud.Instance.UpdateLvlValue(currentLevel);
+        level = new LevelParameters(CurrentLevel, NomberIncreaseStep);
+        Hud.Instance.UpdateLvlValue(CurrentLevel);
         field = Field.Create(Level, LevelRepository, Enemy, Player);
 
         var playerInstance = FindObjectOfType<Player>();
@@ -222,14 +194,15 @@ public class Controller : MonoBehaviour
     {
         LevelControl();
         //Score.AddLevelBonus();
-        Debug.Log($"{currentLevel}");       
+        Debug.Log($"{CurrentLevel}");       
         InitializeLevel();
     }
     public void TryAgain()
     {
         InitializeLevel();
+        Services.Ads.IronSourceManager.Instance.ShowInterstitial();
     }
-    
+
     public void ClearField()
     {
         Destroy(field.gameObject);
@@ -258,14 +231,14 @@ public class Controller : MonoBehaviour
             Index = 0;
         }
         UserDataController.Instance().info.index = Index;
-        currentLevel++;
-        if (currentLevel >= 9)
+        CurrentLevel++;
+        if (CurrentLevel >= 9)
         {
-            currentLevel = 0;
+            CurrentLevel = 0;
         }
-        UserDataController.Instance().info.currentLvl = currentLevel;
-        nomberIncreaseStep++;
-        UserDataController.Instance().info.increaseNomber = nomberIncreaseStep;
+        UserDataController.Instance().info.currentLvl = CurrentLevel;
+        NomberIncreaseStep++;
+        UserDataController.Instance().info.increaseNomber = NomberIncreaseStep;
         UserDataController.Instance().LocalSave();
     }
    
