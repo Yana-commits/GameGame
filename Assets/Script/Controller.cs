@@ -161,7 +161,7 @@ public class Controller : MonoBehaviour
     public void InitializeLevel()
     {
         level = new LevelParameters(CurrentLevel, NomberIncreaseStep);
-        Hud.Instance.UpdateLvlValue(CurrentLevel);
+        Hud.Instance.UpdateLvlValue(NomberIncreaseStep);
         field = Field.Create(Level, LevelRepository, Enemy, Player);
 
         var playerInstance = FindObjectOfType<Player>();

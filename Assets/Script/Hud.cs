@@ -39,6 +39,7 @@ public class Hud : MonoBehaviour
     private Joystick joystick;
     private int selection;
 
+    private bool isHidden = false;
     private void Awake()
     {
         instance = this;
@@ -105,6 +106,7 @@ public class Hud : MonoBehaviour
 
     public void ShowWinWindow()
     {
+        isHidden = false;
         next.gameObject.SetActive(true);
         //bottom.SetActive(false);
         StartCoroutine(Show(winWindow));
@@ -115,6 +117,7 @@ public class Hud : MonoBehaviour
     }
     public void ShowLoseWindow()
     {
+        isHidden = false;
         again.gameObject.SetActive(true);
         //bottom.SetActive(false);
         StartCoroutine(Show(winWindow));
@@ -126,7 +129,7 @@ public class Hud : MonoBehaviour
 
     IEnumerator Show(CanvasGroup window)
     {
-        while (window.alpha < 1f)
+        while (window.alpha < 1f && isHidden == false)
         {
             window.alpha += 0.01f;
             yield return new WaitForFixedUpdate();
@@ -134,6 +137,7 @@ public class Hud : MonoBehaviour
     }
     public void HideWinWindow()
     {
+        isHidden = true;
         StartCoroutine(Hide(winWindow));
 
         winWindow.blocksRaycasts = false;
@@ -142,6 +146,7 @@ public class Hud : MonoBehaviour
     }
     public void HideLoseWindow()
     {
+        isHidden = true;
         StartCoroutine(Hide(winWindow));
 
         winWindow.blocksRaycasts = false;
@@ -151,7 +156,7 @@ public class Hud : MonoBehaviour
 
     IEnumerator Hide(CanvasGroup window)
     {
-        while (window.alpha > 0f)
+        while (window.alpha > 0f && isHidden == true)
         {
             window.alpha -= 0.01f;
             yield return new WaitForFixedUpdate();
