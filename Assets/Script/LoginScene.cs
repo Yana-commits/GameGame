@@ -45,6 +45,14 @@ public class LoginScene : MonoBehaviour
         joystic.onClick.AddListener(() => PlayerControl(Control.joy));
       buttons.onClick.AddListener(() => PlayerControl(Control.but));
         giro.onClick.AddListener(() => PlayerControl(Control.accel));
+        if (UserDataController.Instance().info.advert == false)
+        {
+            offAdv.onClick.AddListener(() => AdvOff());
+        }
+        else
+        {
+            offAdv.gameObject.SetActive(false);
+        }
     }
 
     private void Input()
@@ -69,5 +77,12 @@ public class LoginScene : MonoBehaviour
     {
         UserDataController.Instance().info.faktor = (int)control;
         UserDataController.Instance().LocalSave();
+    }
+    private void AdvOff()
+    {
+        UserDataController.Instance().info.advert = true;
+        UserDataController.Instance().LocalSave();
+        offAdv.gameObject.SetActive(false);
+        IronSource.Agent.destroyBanner();
     }
 }

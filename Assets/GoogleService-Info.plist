@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>11126301870-t534j67uq6hh6t1b45es59jcj1nb32f4.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.11126301870-t534j67uq6hh6t1b45es59jcj1nb32f4</string>
+	<key>API_KEY</key>
+	<string>AIzaSyA8mRabBmI7fpIL2c35MsnG4ZQ3nNyM0a0</string>
+	<key>GCM_SENDER_ID</key>
+	<string>11126301870</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.fgf.bingotest</string>
+	<key>PROJECT_ID</key>
+	<string>gamegame-7b6d8</string>
+	<key>STORAGE_BUCKET</key>
+	<string>gamegame-7b6d8.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:11126301870:ios:7ab87922fa8775c92ff93f</string>
+	<key>DATABASE_URL</key>
+	<string>https://gamegame-7b6d8-default-rtdb.firebaseio.com</string>
+</dict>
+</plist>

@@ -107,6 +107,8 @@ public class Controller : MonoBehaviour
 
     public int NomberIncreaseStep { get; set; }
 
+    public bool noAdvert { get; set; }
+
     [SerializeField]
     private Score score;
     public Score Score
@@ -141,8 +143,6 @@ public class Controller : MonoBehaviour
         {
             if (instance != this && instance != null) Destroy(gameObject);
         }
-
-    
     }
 
     void Start()
@@ -152,10 +152,13 @@ public class Controller : MonoBehaviour
         NomberIncreaseStep = UserDataController.Instance().info.increaseNomber;
         Score.CurrentScore = UserDataController.Instance().info.score;
         faktor = UserDataController.Instance().info.faktor;
+        noAdvert = UserDataController.Instance().info.advert;
 
         InitializeLevel();
-
-        Services.Ads.IronSourceManager.Instance.ShowBanner();
+        if (noAdvert == false)
+        {
+            Services.Ads.IronSourceManager.Instance.ShowBanner();
+        }
     }
 
     public void InitializeLevel()
@@ -192,7 +195,10 @@ public class Controller : MonoBehaviour
     public void TryAgain()
     {
         InitializeLevel();
-        Services.Ads.IronSourceManager.Instance.ShowInterstitial();
+        if (noAdvert == false)
+        {
+            Services.Ads.IronSourceManager.Instance.ShowInterstitial();
+        }  
     }
 
     public void ClearField()
@@ -232,6 +238,5 @@ public class Controller : MonoBehaviour
         NomberIncreaseStep++;
         UserDataController.Instance().info.increaseNomber = NomberIncreaseStep;
         UserDataController.Instance().LocalSave();
-    }
-   
+    }  
 }

@@ -12,6 +12,7 @@ namespace Game.Data
         public int increaseNomber = 0;
         public int score = 0;
         public int faktor = 0;
+        public bool advert = false;
         public UserData()
         { 
         }
@@ -24,6 +25,7 @@ namespace Game.Data
             increaseNomber = 0;
          score = 0;
             faktor = 0;
+            advert = false;
         }
     }
 }

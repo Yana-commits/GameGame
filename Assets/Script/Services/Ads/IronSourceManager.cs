@@ -1,5 +1,6 @@
 ﻿using Object = UnityEngine.Object;
 using UnityEngine;
+using Game.Data;
 
 namespace Services.Ads
 {
@@ -31,7 +32,8 @@ namespace Services.Ads
             IronSourceEvents.onInterstitialAdShowSucceededEvent += InterstitialAdShowSucceededEvent;
 
             IronSource.Agent.loadInterstitial();
-            IronSource.Agent.loadBanner(IronSourceBannerSize.BANNER, IronSourceBannerPosition.TOP);
+            if(!UserDataController.Instance().info.advert)
+                IronSource.Agent.loadBanner(IronSourceBannerSize.BANNER, IronSourceBannerPosition.TOP);
         }
         ~IronSourceManager()
         {
